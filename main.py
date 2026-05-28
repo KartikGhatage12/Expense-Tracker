@@ -7,7 +7,7 @@ while True:
     print("     Expense Tracker")
     print("=" * 35)
 
-    print("1.  ADD Expenses")
+    print("1.  Add Expenses")
     print("2.  View Expenses")
     print("3.  Update Expenses")
     print("4.  Delete Expenses")
