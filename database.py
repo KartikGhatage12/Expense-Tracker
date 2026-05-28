@@ -110,9 +110,12 @@ def delete_expenses():
     try:
         delete_ID=int(input("\n\nEnter ID to delete:"))
         cursor.execute("DELETE FROM expenses WHERE id=?",(delete_ID,))
-        conn.commit()
+        if cursor.rowcount==0:
+            print("\nExpense ID not found")
+        else:
+            conn.commit()
+            print("Expense Deleted")
         conn.close()
-        print("\nExpense Deleted")
     except ValueError:
         print("\nInvalid input!!! Enter only Id number")
     # expenses = []
