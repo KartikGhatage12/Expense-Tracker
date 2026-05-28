@@ -245,7 +245,7 @@ def update_expenses():
         new_date=old_date
     else:
         try:
-            valid_date=datetime.strptime(date_input,"%d/%m/%")
+            valid_date=datetime.strptime(date_input,"%d/%m/Y%")
             new_date=valid_date.strftime("%d/%m/%")
         except ValueError:
             print("Invalid date")
@@ -262,7 +262,7 @@ def update_expenses():
             conn.close()
             return
         new_description=description_input
-        return new_description.capitalize()
+        new_description=description_input.capitalize()
 
     cursor.execute(f"UPDATE expenses SET amount=?,category=?,date=?,description=? WHERE id=?",(new_amount,new_category,new_date,new_description,expense_id))
     
