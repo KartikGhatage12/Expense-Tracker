@@ -89,15 +89,15 @@ def monthly_summary():
     for row in rows:
         amount=row[0]
         date=row[1]
-        month_year=date[3:]
+        month_year=date[3:10]
         if month_year in monthly_data:
             monthly_data[month_year] += amount
         else:
             monthly_data[month_year] = amount
     print("\n\n=======Monthly Expense Summary=======")
     if monthly_data:
-        for month ,total in monthly_data.items():
-            print(f"{month:10} -> ₹{total}")
+        for month ,total in sorted(monthly_data.items()):
+            print(f"{month:<10} -> ₹{total:.2f}")
     else:
         print("No Expenses found")
     conn.close()
