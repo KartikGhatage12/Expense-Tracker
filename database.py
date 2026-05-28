@@ -246,7 +246,7 @@ def update_expenses():
     else:
         try:
             valid_date=datetime.strptime(date_input,"%d/%m/Y%")
-            new_date=valid_date.strftime("%d/%m/%")
+            new_date=valid_date.strftime("%d/%m/Y%")
         except ValueError:
             print("Invalid date")
             conn.close()
